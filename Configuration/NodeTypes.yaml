@@ -1,0 +1,5 @@
+'Weissheiten.Neos.DemoSitePageTypes:MovieInfoPage':
+  superTypes: ['TYPO3.Neos:Page']
+  ui:
+    label: 'Movie Info Page'
+    group: 'general'

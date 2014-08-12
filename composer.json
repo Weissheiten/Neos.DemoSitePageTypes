@@ -1,0 +1,14 @@
+{
+    "name": "weissheiten/neos-demositepagetypes",
+    "type": "typo3-flow-package",
+    "description": "Demonstration for including own page types in TYPO3 NEOS inheriting from TYPO3.Neos:Page, uses the twitter-bootstrap package.",
+    "require": {
+        "typo3/flow": "*",
+        "typo3/twitter-bootstrap": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Weissheiten\\Neos\\DemoSitePageTypes": "Classes"
+        }
+    }
+}
