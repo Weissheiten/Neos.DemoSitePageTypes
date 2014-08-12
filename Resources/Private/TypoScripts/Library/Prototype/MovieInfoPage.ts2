@@ -47,7 +47,6 @@ prototype(Weissheiten.Neos.DemoSitePageTypes:MovieInfoPage){
 	}
 }
 
-
 // Include the new PageType in the root switch so the TS2 object is selected based on the node type
 root.movieInfoPage {
         condition = ${q(node).is('[instanceof Weissheiten.Neos.DemoSitePageTypes:MovieInfoPage]')}
