@@ -2,7 +2,9 @@
   superTypes: ['TYPO3.Neos.NodeTypes:Page']
   ui:
     label: 'Movie Info Page'
-    group: 'general'
+    # This assignment has to be left out to prevent the Page element to appear as content element in the General Group when inserting content on pages
+    # This is expected to be a bug as of NEOS 1.1 and will most certainly be adressed in a future release
+    #group: 'general'
   properties:
     layout:
       ui:

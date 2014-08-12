@@ -1,4 +1,8 @@
 // Set the details for the Prototype of every Movie Info Page
+// Currently (as of NEOS 1.1) the core generates some prototypes for the user by itself - this causes unexpected rendering though and would render this page as content element
+// Expectations are that this will be fixed and obsolete in future versions
+prototype(Weissheiten.Neos.DemoSitePageTypes:MovieInfoPage) >
+
 prototype(Weissheiten.Neos.DemoSitePageTypes:MovieInfoPage) < prototype(TYPO3.Neos:Page)
 prototype(Weissheiten.Neos.DemoSitePageTypes:MovieInfoPage){
     // we fletch out the head and body objects that already exist for a "Page" object (./Packages/Application/TYPO3.Neos/Resources/Private/TypoScript/Prototypes/Page.ts2)
