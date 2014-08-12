@@ -2,7 +2,7 @@
 prototype(Weissheiten.Neos.DemoSitePageTypes:MovieInfoPage) < prototype(TYPO3.Neos:Page)
 prototype(Weissheiten.Neos.DemoSitePageTypes:MovieInfoPage){
     # we fletch out the head and body objects that already exist for a "Page" object (./Packages/Application/TYPO3.Neos/Resources/Private/TypoScript/Prototypes/Page.ts2)
-    bodyTag.attributes.role = document
+    bodyTag.attributes.role = 'document'
 
     head {
         metadata = TypoScript:Template {
