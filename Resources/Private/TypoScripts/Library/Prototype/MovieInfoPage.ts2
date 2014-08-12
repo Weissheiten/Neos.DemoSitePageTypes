@@ -1,16 +1,18 @@
-# Set the details for the Prototype of every Movie Info Page
+// Set the details for the Prototype of every Movie Info Page
 prototype(Weissheiten.Neos.DemoSitePageTypes:MovieInfoPage) < prototype(TYPO3.Neos:Page)
 prototype(Weissheiten.Neos.DemoSitePageTypes:MovieInfoPage){
-    # we fletch out the head and body objects that already exist for a "Page" object (./Packages/Application/TYPO3.Neos/Resources/Private/TypoScript/Prototypes/Page.ts2)
+    // we fletch out the head and body objects that already exist for a "Page" object (./Packages/Application/TYPO3.Neos/Resources/Private/TypoScript/Prototypes/Page.ts2)
+
+    // the body tag receives an additional attribute (role) with the value 'document' for use with bootstrap
     bodyTag.attributes.role = 'document'
 
     head {
-        metadata = TypoScript:Template {
+        metadata = TYPO3.TypoScript:Template {
     	    templatePath = 'resource://Weissheiten.Neos.DemoSitePageTypes/Private/Templates/Page/MovieInfoPage.html'
     		sectionName = 'metadata'
     	}
 
-		#stylesheets and javascripts are predefined objects (array that gets rendered) (./Packages/Application/TYPO3.Neos/Resources/Private/TypoScript/Prototypes/Page.ts2)
+		// stylesheets and javascripts are predefined objects (array that gets rendered) (./Packages/Application/TYPO3.Neos/Resources/Private/TypoScript/Prototypes/Page.ts2)
 		stylesheets.site = TYPO3.TypoScript:Template {
 			templatePath = 'resource://Weissheiten.Neos.DemoSitePageTypes/Private/Templates/Page/MovieInfoPage.html'
 			sectionName = 'stylesheets'
@@ -33,7 +35,7 @@ prototype(Weissheiten.Neos.DemoSitePageTypes:MovieInfoPage){
 			}
 		}
 
-		# javascripts is a predefined object (array that gets rendered) (./Packages/Application/TYPO3.Neos/Resources/Private/TypoScript/Prototypes/Page.ts2)
+		// javascripts is a predefined object (array that gets rendered) (./Packages/Application/TYPO3.Neos/Resources/Private/TypoScript/Prototypes/Page.ts2)
 		javascripts.site = TYPO3.TypoScript:Template {
 			templatePath = 'resource://Weissheiten.Neos.DemoSitePageTypes/Private/Templates/Page/MovieInfoPage.html'
 			sectionName = 'bodyScripts'
@@ -42,11 +44,11 @@ prototype(Weissheiten.Neos.DemoSitePageTypes:MovieInfoPage){
 }
 
 
-# Include the new PageType in the root switch so the TS2 object is selected based on the node type
+// Include the new PageType in the root switch so the TS2 object is selected based on the node type
 root.movieInfoPage {
         condition = ${q(node).is('[instanceof Weissheiten.Neos.DemoSitePageTypes:MovieInfoPage]')}
         renderPath = '/movieInfoPage'
 }
 
-# create a TS object that can be used for rendering from the prototype
+// create a TS object that can be used for rendering from the prototype
 movieInfoPage = Weissheiten.Neos.DemoSitePageTypes:MovieInfoPage

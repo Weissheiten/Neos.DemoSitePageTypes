@@ -1,5 +1,20 @@
 'Weissheiten.Neos.DemoSitePageTypes:MovieInfoPage':
-  superTypes: ['TYPO3.Neos:Page']
+  superTypes: ['TYPO3.Neos.NodeTypes:Page']
   ui:
     label: 'Movie Info Page'
     group: 'general'
+  properties:
+    layout:
+      ui:
+        inspector:
+          editorOptions:
+            values:
+              'default':
+                label: 'Default'
+    subpageLayout:
+      ui:
+        inspector:
+          editorOptions:
+            values:
+              'default':
+                label: 'Default'
