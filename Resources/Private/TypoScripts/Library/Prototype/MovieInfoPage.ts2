@@ -32,7 +32,7 @@ prototype(Weissheiten.Neos.DemoSitePageTypes:MovieInfoPage) < prototype(TYPO3.Ne
 
 		# javascripts is a predefined object (array that gets rendered) (./Packages/Application/TYPO3.Neos/Resources/Private/TypoScript/Prototypes/Page.ts2)
 		javascripts.site = TYPO3.TypoScript:Template {
-			templatePath = 'resource://Weissheiten.Neos.DemoSitePageTypes/Private/Templates/Page/Default.html'
+			templatePath = 'resource://Weissheiten.Neos.DemoSitePageTypes/Private/Templates/Page/MovieInfoPage.html'
 			sectionName = 'bodyScripts'
 		}
 	}
