@@ -1,5 +1,6 @@
 # Set the details for the Prototype of every Movie Info Page
-prototype(Weissheiten.Neos.DemoSitePageTypes:MovieInfoPage) < prototype(TYPO3.Neos:Page){
+prototype(Weissheiten.Neos.DemoSitePageTypes:MovieInfoPage) < prototype(TYPO3.Neos:Page)
+prototype(Weissheiten.Neos.DemoSitePageTypes:MovieInfoPage){
     # we fletch out the head and body objects that already exist for a "Page" object (./Packages/Application/TYPO3.Neos/Resources/Private/TypoScript/Prototypes/Page.ts2)
     head {
         metadata = TypoScript:Template {
@@ -37,6 +38,7 @@ prototype(Weissheiten.Neos.DemoSitePageTypes:MovieInfoPage) < prototype(TYPO3.Ne
 		}
 	}
 }
+
 
 # Include the new PageType in the root switch so the TS2 object is selected based on the node type
 root.movieInfoPage {
