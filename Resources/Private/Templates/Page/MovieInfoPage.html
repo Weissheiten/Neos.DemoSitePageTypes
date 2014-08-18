@@ -2,6 +2,8 @@
 {namespace bootstrap=TYPO3\Twitter\Bootstrap\ViewHelpers}
 {namespace neos=TYPO3\Neos\ViewHelpers}
 {namespace ts=TYPO3\TypoScript\ViewHelpers}
+{namespace media=TYPO3\Media\ViewHelpers}
+        include:
 <html>
 <head>
     <f:section name="metadata">
@@ -20,11 +22,31 @@
 </head>
 <body role="document">
     <f:section name="body">
+        {parts.menu -> f:format.raw()}
+
         <!-- Main jumbotron for a primary marketing message or call to action -->
         <div class="jumbotron">
-            <h1>Movie Page</h1>
-            <p>{content.main -> f:format.raw()}</p>
-        </div>
+            <h1>{movieTitle}</h1>
+            <div class="row">
+                <div class="col-md-3">
+                    <f:if condition="{propertyMovieImage}">
+                        <f:then>
+                            <!--
+                                 Accessible properties can be looked up in Packages/Application/TYPO3.Media/Classes/TYPO3/Media/Domain/Model/ImageVariant.php
+                                 The fluid object can access all properties that have a getter or are public
+                                 media.foo will first try to access $media~>foo, then $media~>getFoo()
+                            -->
+                            <media:image class="img-responsive" image="{propertyMovieImage}" alt="{movieTitle}" title="{movieTitle}" maximumWidth="{propertyMovieImage.width}" maximumHeight="{propertyMovieImage.height}"  />
+                        </f:then>
+                        <f:else>
+                            <img class="img-responsive" src="{f:uri.resource(package: 'TYPO3.Neos', path: 'Images/dummy-image.png')}" title="Dummy image" alt="Dummy image" />
+                        </f:else>
+                    </f:if>
+                </div>
+                <div class="col-md-9">
+                    {content.main -> f:format.raw()}
+                </div>
+            </div></div>
     </f:section>
     <f:section name="bodyScripts">
         <!-- Put your scripts inclusions for the end of the body here, they will be included in your website by TypoScript -->

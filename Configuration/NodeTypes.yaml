@@ -1,10 +1,19 @@
 'Weissheiten.Neos.DemoSitePageTypes:MovieInfoPage':
+  # Details for this super type can be found at /Packages/Application/TYPO3.Neos.NodeTypes/Configuration/NodeTypes.Documents.yaml
   superTypes: ['TYPO3.Neos.NodeTypes:Page']
   ui:
     label: 'Movie Info Page'
     # This assignment has to be left out to prevent the Page element to appear as content element in the General Group when inserting content on pages
     # This is expected to be a bug as of NEOS 1.1 and will most certainly be adressed in a future release
     #group: 'general'
+    inspector:
+      # we create a new group for the backend inspector named "Media"
+      # at the moment this will only contain a flyer or other image for the movie (see propertyMovieImage) - later we might also link a trailer or similar
+      groups:
+        media:
+          label: 'Media'
+          # position 10 makes sure it appears under the "title" of the page
+          position: 10
   properties:
     layout:
       ui:
@@ -20,3 +29,16 @@
             values:
               'default':
                 label: 'Default'
+    propertyMovieImage:
+      # you might want to look up /Packages/Application/TYPO3.Media/Classes/TYPO3/Media/Domain/Model/ImageVariant.php as reference
+      type: TYPO3\Media\Domain\Model\ImageVariant
+      ui:
+        label: 'Movie Image'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'media'
+          # if we just want the basic image editor we are fine here - however we'd like to edit the options presented to the user
+          # for reference see /Packages/Application/TYPO3.Neos/Resources/Public/JavaScript/Content/Inspector/Editors/ImageEditor.js
+          editor: 'TYPO3.Neos/Inspector/Editors/ImageEditor'
+          editorOptions:
+            uploaderLabel: 'Upload MoviePoster!'

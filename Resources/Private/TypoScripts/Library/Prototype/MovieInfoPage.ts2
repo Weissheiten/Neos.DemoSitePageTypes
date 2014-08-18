@@ -29,6 +29,8 @@ prototype(Weissheiten.Neos.DemoSitePageTypes:MovieInfoPage){
 	}
 
 	body {
+		parts.menu = Menu
+
 		templatePath = 'resource://Weissheiten.Neos.DemoSitePageTypes/Private/Templates/Page/MovieInfoPage.html'
 		sectionName = 'body'
 		// These are your content areas, you can define as many as you want, just name them and the nodePath.
@@ -37,6 +39,10 @@ prototype(Weissheiten.Neos.DemoSitePageTypes:MovieInfoPage){
 			main = PrimaryContent {
 				nodePath = 'main'
 			}
+
+			movieImage = TYPO3.Neos.NodeTypes:Image {
+			    nodePath = 'movieImage'
+			}
 		}
 
 		// javascripts is a predefined object (array that gets rendered) (./Packages/Application/TYPO3.Neos/Resources/Private/TypoScript/Prototypes/Page.ts2)
@@ -44,6 +50,10 @@ prototype(Weissheiten.Neos.DemoSitePageTypes:MovieInfoPage){
 			templatePath = 'resource://Weissheiten.Neos.DemoSitePageTypes/Private/Templates/Page/MovieInfoPage.html'
 			sectionName = 'bodyScripts'
 		}
+
+		propertyMovieImage = ${q(node).property('propertyMovieImage')}
+		// We would like to store the title of the page to assign it as alt text for the image in the template
+		movieTitle = ${documentNode.properties.title}
 	}
 }
 
